@@ -1,13 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 
-def homePageView(request):
-    return HttpResponse('Hello, World!')
+from .models import Post
 
-def createPageView(request):
-    return HttpResponse('create blog post')
+def index(request):
+    latest_question_list = Post.objects.order_by('-date')[:5]
+    template = loader.get_template('blog/index.html')
+    context = {
+        'latest_question_list': latest_question_list,
+        'user': 'Brendan'
+    }
+    return HttpResponse(template.render(context, request))
 
-def userPageView(request):
-    return HttpResponse('User page')
+def detail(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    return HttpResponse("You're looking at post %s." % post.title)
 

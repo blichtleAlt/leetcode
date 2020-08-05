@@ -4,7 +4,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('', homePageView, name='home'),
-    path('create', createPageView, name='create'),
-    path('user', userPageView, name='user')
+    path('', index, name='index'),
+    path('<int:post_id>/', detail, name='detail'),
 ]
