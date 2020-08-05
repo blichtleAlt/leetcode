@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 
@@ -15,6 +15,6 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 def detail(request, post_id):
-    post = Post.objects.get(pk=post_id)
+    post = get_object_or_404(Post, pk=post_id)
     return HttpResponse("You're looking at post %s." % post.title)
 

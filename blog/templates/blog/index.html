@@ -1,20 +1,30 @@
 <!DOCTYPE html>
+
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        font-family: "Raleway", sans-serif
-    }
-</style>
+{% load static %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>Learncode</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}" />
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Raleway", sans-serif
+        }
+    </style>
+</head>
 
 <body class="w3-light-grey">
 
@@ -23,14 +33,37 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-content" style="max-width:1400px">
 
         <!-- Header -->
-        <header class="w3-container w3-center w3-padding-32">
-            <h1>
-                <b>MY BLOG</b>
-            </h1>
-            <p>Welcome to the blog of
-                <span class="w3-tag">unknown</span>
-            </p>
-        </header>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+            <a class="navbar-brand" href="#">Algo Blog</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navb" class="navbar-collapse collapse hide">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Page 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Page 2</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="fas fa-user"></span> Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="fas fa-sign-in-alt"></span> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
 
         <!-- Grid -->
         <div class="w3-row">
@@ -40,7 +73,12 @@ and is wrapped around the whole page content, except for the footer in this exam
 
                 {% if latest_question_list %} {% for question in latest_question_list %}
                 <div class="w3-card-4 w3-margin w3-white">
-                    <img src="/w3images/bridge.jpg" alt="Norway" style="width:100%">
+                
+                    <div class="w3-container">
+                        <h5><img src="/w3images/bridge.jpg" alt="Norway" style="width:100%">
+                            <span>blichtle</span> 
+                        </h5>
+                    </div>
                     <div class="w3-container">
                         <h5>{{ question.title }},
                             <span class="w3-opacity">{{ question.date }}</span>
@@ -49,7 +87,7 @@ and is wrapped around the whole page content, except for the footer in this exam
 
                     <div class="w3-container">
                         <p>{{ question.body }}</p>
-                        <div class="w3-row">
+                        <!-- <div class="w3-row">
                             <div class="w3-col m8 s12">
                                 <p>
                                     <button class="w3-button w3-padding-large w3-white w3-border">
@@ -65,11 +103,11 @@ and is wrapped around the whole page content, except for the footer in this exam
                                     </span>
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 {% endfor %} {% else %}
-                <p>No polls are available.</p>
+                <p>No blog posts are available.</p>
                 {% endif %}
 
             </div>
@@ -81,10 +119,9 @@ and is wrapped around the whole page content, except for the footer in this exam
                     <img src="/w3images/avatar_g.jpg" style="width:100%">
                     <div class="w3-container w3-white">
                         <h4>
-                            <b>My Name</b>
+                            <b>TODO: Username</b>
                         </h4>
-                        <p>Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a interest
-                            of lorem ipsum and mauris neque quam blog. I want to share my world with you.</p>
+                        <p>TODO: User information</p>
                     </div>
                 </div>
                 <hr>
@@ -92,7 +129,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <!-- Posts -->
                 <div class="w3-card w3-margin">
                     <div class="w3-container w3-padding">
-                        <h4>Popular Posts</h4>
+                        <h4>Popular Posts - TODO: Need to add likes button to post, likes feature to posts.</h4>
                     </div>
                     <ul class="w3-ul w3-hoverable w3-white">
                         <li class="w3-padding-16">
@@ -126,7 +163,7 @@ and is wrapped around the whole page content, except for the footer in this exam
                 <!-- Labels / tags -->
                 <div class="w3-card w3-margin">
                     <div class="w3-container w3-padding">
-                        <h4>Tags</h4>
+                        <h4>Tags - Todo: Add labels to posts. </h4>
                     </div>
                     <div class="w3-container w3-white">
                         <p>
@@ -162,10 +199,11 @@ and is wrapped around the whole page content, except for the footer in this exam
     <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
         <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
         <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
-        <p>Powered by
-            <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
-        </p>
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 </body>
 
