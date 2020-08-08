@@ -1,4 +1,4 @@
-https://travis-ci.com/blichtleAlt/leetcode - ![GitHub Logo](https://travis-ci.com/blichtleAlt/leetcode.svg?branch=master)
+Build Status - ![GitHub Logo](https://travis-ci.com/blichtleAlt/leetcode.svg?branch=master)
 
 
 # leetcode
