@@ -1,3 +1,5 @@
+https://travis-ci.com/blichtleAlt/leetcode.svg?branch=master
+
 # leetcode
 Django blog made for documenting progress on leetcode.
 
