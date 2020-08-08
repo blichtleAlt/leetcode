@@ -1,29 +1,23 @@
 {% extends "base_generic.html" %} 
 
 {% block content %}
-<script src="https://cdn.ckeditor.com/ckeditor5/21.0.0/classic/ckeditor.js"></script>
 
-<div id='create_button'>
-    <button>Create Blog Post</button>
-</div>
-<form action="" method="post">
-    {% csrf_token %}
-    <textarea name="content" id="editor">&lt;p&gt;Whats on your mind...&lt;/p&gt;</textarea>
-    <br>
-    <p><input type="submit" value="Submit" id='submit'></p>
-</form>
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-    });
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+    <body>
+        <form method="post" action="./">
+            {% csrf_token %}
+            {{ form.media }}
+            <ul style="display: flex">
+                {{ form.as_ul }}
+            </ul>
+            <p><input type="submit" value="post"></p>
+        </form>
+    </body>
+</html>
 
-    // Assuming there is a <button id="submit">Submit</button> in your application.
-    document.querySelector('#submit').addEventListener('click', () => {
-        const editorData = editor.getData();
-        console.log(editorData)
-        // ...
-    });
-</script>
 {% endblock %}

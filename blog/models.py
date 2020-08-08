@@ -1,9 +1,13 @@
+# from django.db import models
+# from ckeditor_uploader.fields import RichTextUploadingField
+
+# class Post(models.Model):
+#     body = RichTextUploadingField(blank=True)
+
 from django.db import models
 
-class Post(models.Model):
-    title = models.CharField(max_length=64)
-    date = models.DateTimeField()
-    body = models.TextField()
+from ckeditor.fields import RichTextField
 
-    def __str__(self):
-        return self.title
+class Post(models.Model):
+    body = RichTextField(null=True, blank=True)
+

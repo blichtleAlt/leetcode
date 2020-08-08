@@ -24,13 +24,17 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# settings.py
+
+
 ALLOWED_HOSTS = []
+
 
 # Application definition
 
 INSTALLED_APPS = [
-    'rest_framework',
-    'corsheaders',
+    'ckeditor',
+    'ckeditor_uploader',
     'blog.apps.BlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -126,5 +130,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+MEDIA_URL = '/media/' 
+MEDIA_ROOT = 'media/'
+
 
 

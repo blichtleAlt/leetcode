@@ -1,21 +1,29 @@
-from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+
+from . import forms
 from .models import Post
+
+class AuthorCreate(CreateView):
+    model = Post
+    fields = '__all__'
 
 @login_required
 def index(request):
-    latest_question_list = Post.objects.order_by('-date')[:5]
+    # latest_question_list = Post.objects.order_by('-date')[:5]
     template = loader.get_template('blog/index.html')
-    context = {
-        'latest_question_list': latest_question_list
-    }
-    
+    # context = {
+    #     'latest_question_list': latest_question_list
+    # }
+    context = {}
     return HttpResponse(template.render(context, request))
 
 @login_required
