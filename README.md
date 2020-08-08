@@ -1,7 +1,7 @@
-https://travis-ci.com/blichtleAlt/leetcode.svg?branch=master
+
 
 ![GitHub Logo](https://travis-ci.com/blichtleAlt/leetcode.svg?branch=master)
-Format: ![Alt Text](url)
+
 
 # leetcode
 Django blog made for documenting progress on leetcode.
