@@ -41,3 +41,10 @@
     width: 100%;
     height: 2.5rem;            /* Footer height */
   }
+
+#create_button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

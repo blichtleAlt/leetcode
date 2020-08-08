@@ -15,16 +15,36 @@ def index(request):
     context = {
         'latest_question_list': latest_question_list
     }
+    
     return HttpResponse(template.render(context, request))
 
 @login_required
 def detail(request, post_id):
+    template = loader.get_template('blog/post.html')
     post = get_object_or_404(Post, pk=post_id)
-    return HttpResponse("You're looking at post %s." % post.title)
+    context = {"post": post}
+    return HttpResponse(template.render(context, request))
 
 @login_required
 def create(request):
     template = loader.get_template('blog/create.html')
+    print(request)
+    print(request.user)
+    if request.method == "POST":
+        print("create new post")
+        return redirect('/')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+@login_required
+def projects(request):
+    template = loader.get_template('blog/projects.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+@login_required
+def about(request):
+    template = loader.get_template('blog/about.html')
     context = {}
     return HttpResponse(template.render(context, request))
 

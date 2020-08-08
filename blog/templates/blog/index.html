@@ -1,9 +1,7 @@
  {% extends "base_generic.html" %} 
  {% block content %}
 <!-- Grid -->
-<div class="w3-col l8 s12">
-        <a class="btn btn-primary" href="create/" role="button">Create Blog Post</a>
-    </div>
+
 
 <div class="w3-row">
 
@@ -15,13 +13,13 @@
         <div class="w3-card-4 w3-margin w3-white">
 
             <div class="w3-container">
-                <h5>
+                <!-- <h5>
                     <img src="/w3images/bridge.jpg" alt="Norway" style="width:100%">
                     <span>blichtle</span>
-                </h5>
+                </h5> -->
             </div>
             <div class="w3-container">
-                <h5>{{ question.title }},
+                <h5>{{ question.title }} - 
                     <span class="w3-opacity">{{ question.date }}</span>
                 </h5>
             </div>
@@ -32,7 +30,7 @@
                     <div class="w3-col m8 s12">
                         <p>
                             <button class="w3-button w3-padding-large w3-white w3-border">
-                                <b>READ MORE »</b>
+                                <b><a href="{% url 'detail' post_id=question.id %}">Read More...</a></b>
                             </button>
                         </p>
                     </div>
@@ -76,12 +74,12 @@
             </div>
             <ul class="w3-ul w3-hoverable w3-white">
                 {% if popular_posts_list %} {% for question in latest_question_list %}
-                <li class="w3-padding-16">
+                <!-- <li class="w3-padding-16">
                     <img src="/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
                     <span class="w3-large">Lorem</span>
                     <br>
                     <span>Sed mattis nunc</span>
-                </li>
+                </li> -->
                 {% endfor %} {% else %}
                 <li>No Popular Posts. Follow more people to see more!</li>
                 {% endif %}
