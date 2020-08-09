@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from django.template import loader
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -9,12 +10,7 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 
-from . import forms
 from .models import Post
-
-class AuthorCreate(CreateView):
-    model = Post
-    fields = '__all__'
 
 @login_required
 def index(request):
@@ -56,6 +52,10 @@ def about(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
+class AddUserView(CreateView):
+    model = User
+    template = 'templates/auth/user_form.html'
+    fields = "__all__"
 
 def signup(request):
     # Need a form, this will be a post request handler, on success redirect user logged in to the home page.

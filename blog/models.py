@@ -1,13 +1,13 @@
-# from django.db import models
-# from ckeditor_uploader.fields import RichTextUploadingField
-
-# class Post(models.Model):
-#     body = RichTextUploadingField(blank=True)
-
 from django.db import models
+from django.contrib.auth.models import User
 
-from ckeditor.fields import RichTextField
 
 class Post(models.Model):
-    body = RichTextField(null=True, blank=True)
+    title = models.CharField(max_length=255)
+    title_tag = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+
+    def __str__(self):
+        return "{} | {}".format(self.title, self.author)
 
